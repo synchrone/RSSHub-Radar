@@ -1,10 +1,10 @@
 <template>
     <div class="list">
         <el-main>
-            <div class="title">规则列表</div>
+            <div class="title">List of rules</div>
             <div class="tip">
-                <p>更多规则支持中，快来<a target="_blank" href="https://docs.rsshub.app/joinus/">参与我们</a>吧！</p>
-                <p>{{ time }}前更新</p>
+                <p>For more rules support, <a target="_blank" href="https://docs.rsshub.app/en/joinus/#submit-new-rsshub-radar-rule">join us</a>!</p>
+                <p>{{ time }} since last update</p>
             </div>
             <div class="content" v-loading="loading">
                 <el-collapse accordion>
@@ -18,14 +18,14 @@
                 </el-collapse>
                 <div class="debug">
                     <div class="tip">
-                        <p>此处用于开发中的规则调试，非战斗人员请迅速撤离</p>
-                        <p>编辑内容随时可能被自动更新的规则覆盖，请保证本地有备份</p>
-                        <p>使用 设置-立即更新 可以立即恢复远程规则</p>
+                        <p>Here for rules debugging in development, non-combatants should evacuate quickly</p>
+                        <p>Edit content may be overwritten at any time by auto-update rules, so make sure you have a local backup</p>
+                        <p>Using Settings - Update Now You can restore remote rules immediately</p>
                     </div>
                     <el-input
                         type="textarea"
                         :rows="100"
-                        placeholder="请输入内容"
+                        placeholder="Please enter content"
                         v-model="rulesText"
                         @change="updateRules">
                     </el-input>
@@ -75,7 +75,7 @@ export default {
         updateRules() {
             updateRules(this.rulesText, () => {
                 this.$message({
-                    message: '保存成功',
+                    message: 'Saved',
                     type: 'success'
                 });
             });

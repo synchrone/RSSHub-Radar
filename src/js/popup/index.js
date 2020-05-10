@@ -27,28 +27,28 @@ function generateList(type, list) {
                 </a>
                 ${
                     item.isDocs
-                        ? `<a href="${url}" class="rss-action">文档</a>`
-                        : `<div class="rss-action rss-copy" data-clipboard-text="${url}">复制</div>
+                        ? `<a href="${url}" class="rss-action">Info</a>`
+                        : `<div class="rss-action rss-copy" data-clipboard-text="${url}">Copy</div>
                 ${
                     config.submitto.ttrss && config.submitto.ttrssDomain
-                        ? `<a href="${config.submitto.ttrssDomain.replace(/\/$/, '')}/public.php?op=subscribe&feed_url=${encodeURI(url)}" class="rss-action rss-submitto-ttrss">订阅到 TTRSS</a>`
+                        ? `<a href="${config.submitto.ttrssDomain.replace(/\/$/, '')}/public.php?op=subscribe&feed_url=${encodeURI(url)}" class="rss-action rss-submitto-ttrss">Subscribe to TTRSS</a>`
                         : ''
                 }
                 ${
                     config.submitto.miniflux && config.submitto.minifluxDomain
-                        ? `<a href="${config.submitto.minifluxDomain.replace(/\/$/, '')}/bookmarklet?uri=${encodeURI(url)}" class="rss-action rss-submitto-miniflux">订阅到 Miniflux</a>`
+                        ? `<a href="${config.submitto.minifluxDomain.replace(/\/$/, '')}/bookmarklet?uri=${encodeURI(url)}" class="rss-action rss-submitto-miniflux">Subscribe to  Miniflux</a>`
                         : ''
                 }
                 ${
                     config.submitto.freshrss && config.submitto.freshrssDomain
-                        ? `<a href="${config.submitto.freshrssDomain.replace(/\/$/, '')}/i/?c=feed&a=add&url_rss=${encodeURI(url)}" class="rss-action rss-submitto-freshrss">订阅到 FreshRSS</a>`
+                        ? `<a href="${config.submitto.freshrssDomain.replace(/\/$/, '')}/i/?c=feed&a=add&url_rss=${encodeURI(url)}" class="rss-action rss-submitto-freshrss">Subscribe to  FreshRSS</a>`
                         : ''
                 }
-                ${config.submitto.feedly ? `<a href="https://feedly.com/i/subscription/feed/${encodeURI(url)}" class="rss-action rss-submitto-feedly">订阅到 Feedly</a>` : ''}
-                ${config.submitto.inoreader ? `<a href="https://www.inoreader.com/?add_feed=${encodeURI(url)}" class="rss-action rss-submitto-inoreader">订阅到 Inoreader</a>` : ''}
-                ${config.submitto.feedbin ? `<a href="https://feedbin.com/?subscribe=${encodeURI(url)}" class="rss-action rss-submitto-feedbin">订阅到 Feedbin</a>` : ''}
-                ${config.submitto.theoldreader ? `<a href="https://theoldreader.com/feeds/subscribe?url=${encodeURI(url)}" class="rss-action rss-submitto-theoldreader">订阅到 The Old Reader</a>` : ''}
-                ${config.submitto.local ? `<a href="feed://${url}" class="rss-action rss-submitto-local">订阅到本地阅读器</a>` : ''}`
+                ${config.submitto.feedly ? `<a href="https://feedly.com/i/subscription/feed/${encodeURI(url)}" class="rss-action rss-submitto-feedly">Subscribe to  Feedly</a>` : ''}
+                ${config.submitto.inoreader ? `<a href="https://www.inoreader.com/?add_feed=${encodeURI(url)}" class="rss-action rss-submitto-inoreader">Subscribe to  Inoreader</a>` : ''}
+                ${config.submitto.feedbin ? `<a href="https://feedbin.com/?subscribe=${encodeURI(url)}" class="rss-action rss-submitto-feedbin">Subscribe to  Feedbin</a>` : ''}
+                ${config.submitto.theoldreader ? `<a href="https://theoldreader.com/feeds/subscribe?url=${encodeURI(url)}" class="rss-action rss-submitto-theoldreader">Subscribe to  The Old Reader</a>` : ''}
+                ${config.submitto.local ? `<a href="feed://${url}" class="rss-action rss-submitto-local">Open as feed://</a>` : ''}`
                 }
             </li>
             `;
@@ -85,9 +85,9 @@ chrome.tabs.query(
 
                     const clipboard = new ClipboardJS('.rss-copy');
                     clipboard.on('success', function (e) {
-                        e.trigger.innerHTML = '已复制';
+                        e.trigger.innerHTML = 'Copied';
                         setTimeout(() => {
-                            e.trigger.innerHTML = '复制';
+                            e.trigger.innerHTML = 'Copy';
                         }, 1000);
                     });
 

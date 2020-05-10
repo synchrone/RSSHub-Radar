@@ -52,8 +52,8 @@ getConfig((config) => {
         chrome.notifications.create('RSSHubRadarUpdate', {
             type: 'basic',
             iconUrl: './rsshub.png',
-            title: '🎉 RSSHub Radar 更新',
-            message: `v${VERSION}，点击查看更新日志`,
+            title: '🎉 RSSHub Radar Updated',
+            message: `v${VERSION}，Click to view changelog`,
         });
         chrome.notifications.onClicked.addListener((id) => {
             if (id === 'RSSHubRadarUpdate') {

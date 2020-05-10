@@ -6,7 +6,7 @@
         }
     },
     "name": "RSSHub Radar",
-    "description": "RSSHub Radar 是 RSSHub 的衍生项目，她可以帮助你快速发现和订阅当前网站的 RSS 和 RSSHub",
+    "description": "RSSHub Radar is a spinoff of RSSHub, and it helps you quickly discover and subscribe to RSS and RSSHub for your current website",
     "version": "1.4.0",
     "homepage_url": "https://docs.rsshub.app",
     "icons": {
