@@ -22,9 +22,9 @@
 
 RSSHub Radar is a derivative of [RSSHub](https://github.com/DIYgod/RSSHub), a browser extension that helps you quickly discover and subscribe to current website RSS and RSSHub
 
-![](https://i.imgur.com/OvGZcOP.jpg)
+![](https://i.imgur.com/MAQYBor.png)
 
-![](https://i.imgur.com/UmzLrmx.jpg)
+![](https://i.imgur.com/YpD7L0D.png)
 
 ## Installation
 
