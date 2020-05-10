@@ -2,13 +2,13 @@
     "manifest_version": 2,
     "applications": {
         "gecko": {
-            "id": "i@diygod.me"
+            "id": "{c8cac141-6ee8-4a21-a922-b51646c85601}"
         }
     },
-    "name": "RSSHub Radar",
+    "name": "RSSHub Radar (EN)",
     "description": "RSSHub Radar is a spinoff of RSSHub, and it helps you quickly discover and subscribe to RSS and RSSHub for your current website",
     "version": "1.4.0",
-    "homepage_url": "https://docs.rsshub.app",
+    "homepage_url": "https://docs.rsshub.app/en",
     "icons": {
         "16": "icon16.png",
         "48": "icon48.png",
