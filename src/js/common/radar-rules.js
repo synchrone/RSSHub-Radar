@@ -3,18 +3,18 @@ export default {
         _name: 'bilibili',
         www: [
             {
-                title: '分区视频',
+                title: 'Partition video',
                 docs: 'https://docs.rsshub.app/social-media.html#bilibili',
                 source: ['/v/*tpath', '/documentary', '/movie', '/tv'],
             },
             {
-                title: '视频评论',
+                title: 'Video reviews',
                 docs: 'https://docs.rsshub.app/social-media.html#bilibili',
                 source: '/video/:aid',
                 target: (params) => `/bilibili/video/reply/${params.aid.replace('av', '')}`,
             },
             {
-                title: '视频弹幕',
+                title: 'Video barrage',
                 docs: 'https://docs.rsshub.app/social-media.html#bilibili',
                 source: '/video/:aid',
                 target: (params, url) => {
@@ -23,7 +23,7 @@ export default {
                 },
             },
             {
-                title: '番剧',
+                title: 'Some drama',
                 docs: 'https://docs.rsshub.app/social-media.html#bilibili',
                 source: '/bangumi/media/:bid',
                 target: (params) => `/bilibili/bangumi/media/${params.bid.replace('md', '')}`,
@@ -31,13 +31,13 @@ export default {
         ],
         space: [
             {
-                title: 'UP 主动态',
+                title: 'UP the active state',
                 docs: 'https://docs.rsshub.app/social-media.html#bilibili',
                 source: '/:uid',
                 target: '/bilibili/user/dynamic/:uid',
             },
             {
-                title: 'UP 主投稿',
+                title: 'UP main contributor',
                 docs: 'https://docs.rsshub.app/social-media.html#bilibili',
                 source: '/:uid',
                 target: '/bilibili/user/video/:uid',
@@ -48,7 +48,7 @@ export default {
         _name: '微博',
         '.': [
             {
-                title: '博主',
+                title: 'Blogger',
                 docs: 'https://docs.rsshub.app/social-media.html#wei-bo',
                 source: ['/u/:id', '/:id'],
                 target: (params, url, document) => {
@@ -57,11 +57,11 @@ export default {
                 },
             },
             {
-                title: '关键词',
+                title: 'Keywords',
                 docs: 'https://docs.rsshub.app/social-media.html#wei-bo',
             },
             {
-                title: '超话',
+                title: 'Super Session',
                 docs: 'https://docs.rsshub.app/social-media.html#wei-bo',
                 source: '/p/:id/super_index',
                 target: '/weibo/super_index/:id',
@@ -69,7 +69,7 @@ export default {
         ],
         s: [
             {
-                title: '热搜榜',
+                title: 'Hot search standings',
                 docs: 'https://docs.rsshub.app/social-media.html#wei-bo',
                 source: '/top/summary',
                 target: '/weibo/search/hot',
@@ -80,29 +80,29 @@ export default {
         _name: 'Pixiv',
         www: [
             {
-                title: '用户收藏',
+                title: 'User collection',
                 docs: 'https://docs.rsshub.app/social-media.html#pixiv',
                 source: '/bookmark.php',
                 target: (params, url) => `/pixiv/user/bookmarks/${new URL(url).searchParams.get('id')}`,
             },
             {
-                title: '用户动态',
+                title: 'User dynamic',
                 docs: 'https://docs.rsshub.app/social-media.html#pixiv',
                 source: '/member.php',
                 target: (params, url) => `/pixiv/user/${new URL(url).searchParams.get('id')}`,
             },
             {
-                title: '排行榜',
+                title: 'Leaderboards',
                 docs: 'https://docs.rsshub.app/social-media.html#pixiv',
                 source: '/ranking.php',
             },
             {
-                title: '关键词',
+                title: 'Keywords',
                 docs: 'https://docs.rsshub.app/social-media.html#pixiv',
                 source: '/search.php',
             },
             {
-                title: '关注的新作品',
+                title: 'Attention new works',
                 docs: 'https://docs.rsshub.app/social-media.html#pixiv',
                 source: '/bookmark_new_illust.php',
                 target: '/pixiv/user/illustfollows',
@@ -113,7 +113,7 @@ export default {
         _name: 'Twitter',
         '.': [
             {
-                title: '用户时间线',
+                title: 'User timeline',
                 docs: 'https://docs.rsshub.app/social-media.html#twitter',
                 source: '/:id',
                 target: (params) => {
@@ -123,7 +123,7 @@ export default {
                 },
             },
             {
-                title: '用户关注时间线',
+                title: 'Users concerned about the timeline',
                 docs: 'https://docs.rsshub.app/social-media.html#twitter',
                 source: '/:id',
                 target: (params) => {
@@ -133,7 +133,7 @@ export default {
                 },
             },
             {
-                title: '用户喜欢列表',
+                title: 'The user likes the list',
                 docs: 'https://docs.rsshub.app/social-media.html#twitter',
                 source: '/:id',
                 target: (params) => {
@@ -143,7 +143,7 @@ export default {
                 },
             },
             {
-                title: '列表时间线',
+                title: 'List timeline',
                 docs: 'https://docs.rsshub.app/social-media.html#twitter',
                 source: '/:id/lists/:name',
                 target: (params) => {
@@ -153,7 +153,7 @@ export default {
                 },
             },
             {
-                title: '关键词',
+                title: 'Keywords',
                 docs: 'https://docs.rsshub.app/social-media.html#twitter',
                 source: '/search',
                 target: (params, url) => `/twitter/keyword/${new URL(url).searchParams.get('q')}`,
@@ -164,19 +164,19 @@ export default {
         _name: 'Youtube',
         www: [
             {
-                title: '用户',
+                title: 'User',
                 docs: 'https://docs.rsshub.app/social-media.html#youtube',
                 source: '/user/:username',
                 target: '/youtube/user/:username',
             },
             {
-                title: '频道',
+                title: 'Channels',
                 docs: 'https://docs.rsshub.app/social-media.html#youtube',
                 source: '/channel/:id',
                 target: '/youtube/channel/:id',
             },
             {
-                title: '播放列表',
+                title: 'Playlist',
                 docs: 'https://docs.rsshub.app/social-media.html#youtube',
                 source: '/playlist',
                 target: (params, url) => `/youtube/playlist/${new URL(url).searchParams.get('list')}`,
@@ -187,13 +187,13 @@ export default {
         _name: 'GitHub',
         '.': [
             {
-                title: '用户仓库',
+                title: 'User warehouse',
                 docs: 'https://docs.rsshub.app/programming.html#github',
                 source: '/:user',
                 target: '/github/repos/:user',
             },
             {
-                title: '用户 Followers',
+                title: 'User Followers',
                 docs: 'https://docs.rsshub.app/programming.html#github',
                 source: '/:user',
                 target: '/github/user/followers/:user',
@@ -205,43 +205,43 @@ export default {
                 target: '/github/trending/:since',
             },
             {
-                title: '仓库 Issue',
+                title: 'Warehouse Issue',
                 docs: 'https://docs.rsshub.app/programming.html#github',
                 source: ['/:user/:repo/issues', '/:user/:repo/issues/:id', '/:user/:repo'],
                 target: '/github/issue/:user/:repo',
             },
             {
-                title: '仓库 Pull Requests',
+                title: 'Warehouse Pull Requests',
                 docs: 'https://docs.rsshub.app/programming.html#github',
                 source: ['/:user/:repo/pulls', '/:user/:repo/pulls/:id', '/:user/:repo'],
                 target: '/github/pull/:user/:repo',
             },
             {
-                title: '仓库 Stars',
+                title: 'Warehouse Stars',
                 docs: 'https://docs.rsshub.app/programming.html#github',
                 source: ['/:user/:repo/stargazers', '/:user/:repo'],
                 target: '/github/stars/:user/:repo',
             },
             {
-                title: '仓库 Branches',
+                title: 'Warehouse Branches',
                 docs: 'https://docs.rsshub.app/programming.html#github',
                 source: ['/:user/:repo/branches', '/:user/:repo'],
                 target: '/github/branches/:user/:repo',
             },
             {
-                title: '文件 Commits',
+                title: 'File Commits',
                 docs: 'https://docs.rsshub.app/programming.html#github',
                 source: '/:user/:repo/blob/:branch/*filepath',
                 target: '/github/file/:user/:repo/:branch/:filepath',
             },
             {
-                title: '用户 Starred Repositories',
+                title: 'The user Starred Repositories',
                 docs: 'https://docs.rsshub.app/programming.html#github',
                 source: '/:user',
                 target: '/github/starred_repos/:user',
             },
             {
-                title: '仓库 Contributors',
+                title: 'Warehouse Contributors',
                 docs: 'https://docs.rsshub.app/programming.html#github',
                 source: ['/:user/:repo/graphs/contributors', '/:user/:repo'],
                 target: '/github/contributors/:user/:repo',
@@ -252,72 +252,72 @@ export default {
         _name: '知乎',
         www: [
             {
-                title: '收藏夹',
+                title: 'Favorites',
                 docs: 'https://docs.rsshub.app/social-media.html#zhi-hu',
                 source: '/collection/:id',
                 target: '/zhihu/collection/:id',
             },
             {
-                title: '用户动态',
+                title: 'User dynamic',
                 docs: 'https://docs.rsshub.app/social-media.html#zhi-hu',
                 source: '/people/:id',
                 target: '/zhihu/people/activities/:id',
             },
             {
-                title: '用户回答',
+                title: 'The user answer',
                 docs: 'https://docs.rsshub.app/social-media.html#zhi-hu',
                 source: '/people/:id/answers',
                 target: '/zhihu/people/answers/:id',
             },
             {
-                title: '用户想法',
+                title: 'User ideas',
                 docs: 'https://docs.rsshub.app/social-media.html#zhi-hu',
                 source: '/people/:id/pins',
                 target: '/zhihu/people/pins/:id',
             },
             {
-                title: '用户文章',
+                title: 'User articles',
                 docs: 'https://docs.rsshub.app/social-media.html#zhi-hu',
                 source: '/people/:id/posts',
                 target: '/zhihu/people/posts/:id',
             },
             {
-                title: '热榜',
+                title: 'Hot List',
                 docs: 'https://docs.rsshub.app/social-media.html#zhi-hu',
                 source: '/hot',
                 target: '/zhihu/hotlist',
             },
             {
-                title: '想法热榜',
+                title: 'Idea Hot List',
                 docs: 'https://docs.rsshub.app/social-media.html#zhi-hu',
                 target: '/zhihu/pin/hotlist',
             },
             {
-                title: '问题',
+                title: 'The problem',
                 docs: 'https://docs.rsshub.app/social-media.html#zhi-hu',
                 source: '/question/:questionId',
                 target: '/zhihu/question/:questionId',
             },
             {
-                title: '话题',
+                title: 'Topic',
                 docs: 'https://docs.rsshub.app/social-media.html#zhi-hu',
                 source: '/topic/:topicId/:type',
                 target: '/zhihu/topic/:topicId',
             },
             {
-                title: '新书',
+                title: 'New book',
                 docs: 'https://docs.rsshub.app/social-media.html#zhi-hu',
                 source: '/zhihu/bookstore/newest',
                 target: '/zhihu/pin/hotlist',
             },
             {
-                title: '想法-24 小时新闻汇总',
+                title: 'Idea-the 24-hour news summary',
                 docs: 'https://docs.rsshub.app/social-media.html#zhi-hu',
                 source: '/pin/special/972884951192113152',
                 target: '/zhihu/pin/daily',
             },
             {
-                title: '书店-周刊',
+                title: 'Bookstore-weekly',
                 docs: 'https://docs.rsshub.app/social-media.html#zhi-hu',
                 source: '/pub/weekly',
                 target: '/zhihu/weekly',
@@ -325,7 +325,7 @@ export default {
         ],
         zhuanlan: [
             {
-                title: '专栏',
+                title: 'Column',
                 docs: 'https://docs.rsshub.app/social-media.html#zhi-hu',
                 source: '/:id',
                 target: '/zhihu/zhuanlan/:id',
@@ -333,13 +333,13 @@ export default {
         ],
         daily: [
             {
-                title: '日报',
+                title: 'Daily',
                 docs: 'https://docs.rsshub.app/social-media.html#zhi-hu',
                 source: '',
                 target: '/zhihu/daily',
             },
             {
-                title: '日报',
+                title: 'Daily',
                 docs: 'https://docs.rsshub.app/social-media.html#zhi-hu',
                 source: '/*tpath',
                 target: '/zhihu/daily',
@@ -350,14 +350,14 @@ export default {
         _name: '什么值得买',
         www: [
             {
-                title: '排行榜',
+                title: 'Leaderboards',
                 docs: 'https://docs.rsshub.app/shopping.html#shen-me-zhi-de-mai',
                 source: '/top',
             },
         ],
         search: [
             {
-                title: '关键词',
+                title: 'Keywords',
                 docs: 'https://docs.rsshub.app/shopping.html#shen-me-zhi-de-mai',
                 source: '/',
                 target: (params, url) => `/smzdm/keyword/${new URL(url).searchParams.get('s')}`,
@@ -368,13 +368,13 @@ export default {
         _name: 'RSSHub',
         docs: [
             {
-                title: '有新路由啦',
+                title: 'There is a new route now.',
                 docs: 'https://docs.rsshub.app/program-update.html#rsshub',
                 source: ['', '/*tpath'],
                 target: '/rsshub/routes',
             },
             {
-                title: '有新赞助商啦',
+                title: 'There is a new sponsor now.',
                 docs: 'https://docs.rsshub.app/program-update.html#rsshub',
                 source: ['', '/*tpath'],
                 target: '/rsshub/sponsors',
@@ -385,7 +385,7 @@ export default {
         _name: '喜马拉雅',
         www: [
             {
-                title: '专辑',
+                title: 'Album',
                 docs: 'https://docs.rsshub.app/multimedia.html#xi-ma-la-ya',
                 source: '/:type/:id',
                 target: (params) => {
@@ -400,7 +400,7 @@ export default {
         _name: 'AlgoCasts',
         '.': [
             {
-                title: '视频更新',
+                title: 'Video update',
                 docs: 'https://docs.rsshub.app/programming.html#algocasts',
                 source: '/episodes',
                 target: '/algocasts',
@@ -411,7 +411,7 @@ export default {
         _name: 'Soul',
         '.': [
             {
-                title: '瞬间更新',
+                title: 'Instant update',
                 docs: 'https://docs.rsshub.app/social-media.html#soul',
             },
         ],
@@ -420,7 +420,7 @@ export default {
         _name: '掘金',
         '.': [
             {
-                title: '专栏',
+                title: 'Column',
                 docs: 'https://docs.rsshub.app/programming.html#jue-jin',
                 source: '/user/:id/posts',
                 target: '/juejin/posts/:id',
@@ -431,13 +431,13 @@ export default {
         _name: 'Anime1',
         '.': [
             {
-                title: '動畫',
+                title: 'Animation',
                 docs: 'https://docs.rsshub.app/anime.html#anime1',
                 source: '/category/:time/:name',
                 target: '/anime1/anime/:time/:name',
             },
             {
-                title: '搜尋',
+                title: 'Search',
                 docs: 'https://docs.rsshub.app/anime.html#anime1',
                 source: '/',
                 target: (params, url) => {
@@ -451,7 +451,7 @@ export default {
         _name: 'Instagram',
         www: [
             {
-                title: '用户',
+                title: 'User',
                 docs: 'https://docs.rsshub.app/social-media.html#instagram',
                 source: '/:id',
                 target: (params) => {
@@ -461,7 +461,7 @@ export default {
                 },
             },
             {
-                title: '标签',
+                title: 'Tags',
                 docs: 'https://docs.rsshub.app/social-media.html#instagram',
                 source: '/explore/tags/:tag',
                 target: '/instagram/tag/:tag',
@@ -472,13 +472,13 @@ export default {
         _name: '西南财经大学',
         it: [
             {
-                title: '经济信息工程学院 - 通知公告',
+                title: 'Economic Information Engineering - notice',
                 docs: 'https://docs.rsshub.app/university.html#xi-nan-cai-jing-da-xue',
                 source: '/index/tzgg.htm',
                 target: '/swufe/seie/tzgg',
             },
             {
-                title: '经济信息工程学院 - 学院新闻',
+                title: 'Economic Information Engineering - College news',
                 docs: 'https://docs.rsshub.app/university.html#xi-nan-cai-jing-da-xue',
                 source: '/index/xyxw.htm',
                 target: '/swufe/seie/xyxw',
@@ -489,7 +489,7 @@ export default {
         _name: '鼠绘漫画',
         www: [
             {
-                title: '鼠绘漫画',
+                title: 'Mouse-drawn comics',
                 docs: 'https://docs.rsshub.app/anime.html#shu-hui-man-hua',
                 source: '/comics/anime/:id',
                 target: '/shuhui/comics/:id',
@@ -500,7 +500,7 @@ export default {
         _name: '海猫吧',
         www: [
             {
-                title: '漫画更新',
+                title: 'Comic update',
                 docs: 'https://docs.rsshub.app/anime.html#hai-mao-ba',
                 source: '/catalog/:id',
                 target: '/haimaoba/:id',
@@ -511,7 +511,7 @@ export default {
         _name: '蒲公英应用分发',
         www: [
             {
-                title: 'app更新',
+                title: 'app update',
                 docs: 'https://docs.rsshub.app/program-update.html#pu-gong-ying-ying-yong-fen-fa',
                 source: '/:app',
                 target: '/pgyer/:app',
@@ -522,7 +522,7 @@ export default {
         _name: '片源网',
         '.': [
             {
-                title: '电影和剧集',
+                title: 'Movies and episodes',
                 docs: 'https://docs.rsshub.app/multimedia.html#pian-yuan',
                 source: '/',
             },
@@ -532,7 +532,7 @@ export default {
         _name: '少数派',
         '.': [
             {
-                title: '最新上架付费专栏',
+                title: 'Latest on the shelves of the paid column',
                 docs: 'https://docs.rsshub.app/new-media.html#shao-shu-pai-sspai',
                 source: '/series',
                 target: '/sspai/series',
@@ -544,25 +544,25 @@ export default {
                 target: '/sspai/matrix',
             },
             {
-                title: '专栏',
+                title: 'Column',
                 docs: 'https://docs.rsshub.app/new-media.html#shao-shu-pai-sspai',
                 source: '/column/:id',
                 target: '/sspai/column/:id',
             },
             {
-                title: '作者已发布文章',
+                title: 'The author of the published article',
                 docs: 'https://docs.rsshub.app/new-media.html#shao-shu-pai-sspai',
                 source: ['/user/:id/posts', '/user/:id/updates'],
                 target: '/sspai/author/:id',
             },
             {
-                title: '专题',
+                title: 'Topic',
                 docs: 'https://docs.rsshub.app/new-media.html#shao-shu-pai-sspai',
                 source: '/topics',
                 target: '/sspai/topics',
             },
             {
-                title: '专题内文章更新',
+                title: 'The topic within the article update',
                 docs: 'https://docs.rsshub.app/new-media.html#shao-shu-pai-sspai',
                 source: '/topic/:id',
                 target: '/sspai/topic/:id',
@@ -581,7 +581,7 @@ export default {
         _name: '贴吧',
         tieba: [
             {
-                title: '帖子列表',
+                title: 'Posts list',
                 docs: 'https://docs.rsshub.app/bbs.html#tie-ba',
                 source: 'f',
                 target: (params, url) => {
@@ -592,7 +592,7 @@ export default {
                 },
             },
             {
-                title: '精品帖子',
+                title: 'Boutique posts',
                 docs: 'https://docs.rsshub.app/bbs.html#tie-ba',
                 source: 'f',
                 target: (params, url) => {
@@ -603,13 +603,13 @@ export default {
                 },
             },
             {
-                title: '帖子动态',
+                title: 'Posts dynamic',
                 docs: 'https://docs.rsshub.app/bbs.html#tie-ba',
                 source: '/p/:id',
                 target: '/tieba/post/:id',
             },
             {
-                title: '只看楼主',
+                title: 'Only to see the landlord',
                 docs: 'https://docs.rsshub.app/bbs.html#tie-ba',
                 source: '/p/:id',
                 target: '/tieba/post/lz/:id',
@@ -620,7 +620,7 @@ export default {
         _name: '酒云网',
         www: [
             {
-                title: '最新商品',
+                title: 'The latest goods',
                 docs: 'https://docs.rsshub.app/other.html#jiu-yun-wang',
                 source: ['/:category'],
                 target: '/wineyun/:category',
@@ -631,7 +631,7 @@ export default {
         _name: 'Epic Games',
         www: [
             {
-                title: '每周免费游戏',
+                title: 'Weekly free games',
                 docs: 'https://docs.rsshub.app/game.html#epicgames-freegame',
                 source: '/store/zh-CN/free-games',
                 target: '/epicgames/freegames',
@@ -642,7 +642,7 @@ export default {
         _name: 'Docker',
         hub: [
             {
-                title: '镜像有新 Build',
+                title: 'The mirror there is a new Build',
                 docs: 'https://docs.rsshub.app/program-update.html#docker-hub',
                 source: ['/r/:owner/:image', '/r/:owner/:image/tags', '/_/:image'],
                 target: (params) => `/dockerhub/build/${params.owner ? params.owner : 'library'}/${params.image}`,
@@ -653,13 +653,13 @@ export default {
         _name: 'NGA',
         bbs: [
             {
-                title: '分区帖子',
+                title: 'Partition posts',
                 docs: 'https://docs.rsshub.app/bbs.html#nga',
                 source: '/thread.php',
                 target: (params, url) => new URL(url).searchParams.get('fid') && `/nga/forum/${new URL(url).searchParams.get('fid')}`,
             },
             {
-                title: '帖子',
+                title: 'Posts',
                 docs: 'https://docs.rsshub.app/bbs.html#nga',
                 source: '/read.php',
                 target: (params, url) => new URL(url).searchParams.get('tid') && `/nga/post/${new URL(url).searchParams.get('tid')}`,
@@ -670,13 +670,13 @@ export default {
         _name: 'PlayStation',
         store: [
             {
-                title: '游戏列表',
+                title: 'Game list',
                 docs: 'https://docs.rsshub.app/game.html#playstation',
                 source: '/zh-hans-hk/grid/:id/:page',
                 target: '/ps/list/:id',
             },
             {
-                title: '折扣|价格',
+                title: 'Discount|price',
                 docs: 'https://docs.rsshub.app/game.html#playstation',
                 source: ['/:lang/product/:gridName'],
                 target: '/ps/:lang/product/:gridName',
@@ -684,11 +684,11 @@ export default {
         ],
         www: [
             {
-                title: '用户奖杯',
+                title: 'User trophies',
                 docs: 'https://docs.rsshub.app/game.html#playstation',
             },
             {
-                title: '系统更新纪录',
+                title: 'The system updates the record',
                 docs: 'https://docs.rsshub.app/game.html#playstation',
             },
         ],
@@ -697,13 +697,13 @@ export default {
         _name: '怪物猎人世界',
         www: [
             {
-                title: '更新情报',
+                title: 'Update intelligence',
                 docs: 'https://docs.rsshub.app/game.html#guai-wu-lie-ren-shi-jie',
                 source: ['', '/*tpath'],
                 target: '/mhw/update',
             },
             {
-                title: '最新消息',
+                title: 'Latest news',
                 docs: 'https://docs.rsshub.app/game.html#guai-wu-lie-ren-shi-jie',
                 source: ['', '/*tpath'],
                 target: '/mhw/news',
@@ -714,19 +714,19 @@ export default {
         _name: '游戏时光',
         www: [
             {
-                title: '新闻',
+                title: 'News',
                 docs: 'https://docs.rsshub.app/game.html#you-xi-shi-guang',
                 source: '/topic/index.jhtml',
                 target: '/vgtime/news',
             },
             {
-                title: '游戏发售表',
+                title: 'Games on sale table',
                 docs: 'https://docs.rsshub.app/game.html#you-xi-shi-guang',
                 source: '/game/release.jhtml',
                 target: '/vgtime/release',
             },
             {
-                title: '关键词资讯',
+                title: 'Keywords information',
                 docs: 'https://docs.rsshub.app/game.html#you-xi-shi-guang',
                 source: '/search/list.jhtml',
                 target: (params, url) => `/vgtime/keyword/${new URL(url).searchParams.get('keyword')}`,
@@ -737,7 +737,7 @@ export default {
         _name: 'Bing',
         www: [
             {
-                title: '每日壁纸',
+                title: 'Daily Wallpaper',
                 docs: 'https://docs.rsshub.app/picture.html#bing-bi-zhi',
                 source: '',
                 target: '/bing',
@@ -748,25 +748,25 @@ export default {
         _name: 'Dcard',
         www: [
             {
-                title: '首頁帖子-最新',
+                title: 'Home posts-latest',
                 docs: 'https://docs.rsshub.app/bbs.html#dcard',
                 source: '/f',
                 target: '/dcard/posts/latest',
             },
             {
-                title: '首頁帖子-熱門',
+                title: 'Home posts-popular',
                 docs: 'https://docs.rsshub.app/bbs.html#dcard',
                 source: '/f',
                 target: '/dcard/posts/popular',
             },
             {
-                title: '板塊帖子-最新',
+                title: 'Plates posts-latest',
                 docs: 'https://docs.rsshub.app/bbs.html#dcard',
                 source: '/f/:section',
                 target: '/dcard/:section/latest',
             },
             {
-                title: '板塊帖子-熱門',
+                title: 'Plates posts-popular',
                 docs: 'https://docs.rsshub.app/bbs.html#dcard',
                 source: '/f/:section',
                 target: '/dcard/:section/popular',
@@ -777,13 +777,13 @@ export default {
         _name: 'WeGene',
         www: [
             {
-                title: '最近更新',
+                title: 'The most recent update',
                 docs: 'https://docs.rsshub.app/other.html#wegene',
                 source: '',
                 target: '/wegene/newest',
             },
             {
-                title: '栏目',
+                title: 'Section',
                 docs: 'https://docs.rsshub.app/other.html#wegene',
                 source: '/crowdsourcing',
                 target: '/wegene/column/all/all',
@@ -794,19 +794,19 @@ export default {
         _name: '好奇心日报',
         www: [
             {
-                title: '标签',
+                title: 'Tags',
                 docs: 'https://docs.rsshub.app/new-media.html#hao-qi-xin-ri-bao',
                 source: '/tags/:idd',
                 target: (params) => `/qdaily/tag/${params.idd.replace('.html', '')}`,
             },
             {
-                title: '栏目',
+                title: 'Section',
                 docs: 'https://docs.rsshub.app/new-media.html#hao-qi-xin-ri-bao',
                 source: '/special_columns/:idd',
                 target: (params) => `/qdaily/column/${params.idd.replace('.html', '')}`,
             },
             {
-                title: '分类',
+                title: 'Classification',
                 docs: 'https://docs.rsshub.app/new-media.html#hao-qi-xin-ri-bao',
                 source: '/categories/:idd',
                 target: (params) => `/qdaily/category/${params.idd.replace('.html', '')}`,
@@ -815,10 +815,10 @@ export default {
     },
 
     '3ycy.com': {
-        _name: '三界异次元',
+        _name: '三界异次元 (Three Realms and Beyond)',
         www: [
             {
-                title: '最近更新',
+                title: 'The most recent update',
                 docs: 'https://docs.rsshub.app/anime.html#san-jie-yi-ci-yuan',
                 source: '/',
                 target: '/3ycy/home',
@@ -830,13 +830,13 @@ export default {
         _name: 'Emi Nitta',
         '.': [
             {
-                title: '最近更新',
+                title: 'The most recent update',
                 docs: 'https://docs.rsshub.app/other.html#xin-tian-hui-hai-guan-fang-wang-zhan',
                 source: '/updates',
                 target: '/emi-nitta/updates',
             },
             {
-                title: '新闻',
+                title: 'News',
                 docs: 'https://docs.rsshub.app/other.html#xin-tian-hui-hai-guan-fang-wang-zhan',
                 source: '/contents/news',
                 target: '/emi-nitta/news',
@@ -848,7 +848,7 @@ export default {
         _name: 'Alter',
         '.': [
             {
-                title: '新闻',
+                title: 'News',
                 docs: 'https://docs.rsshub.app/shopping.html#alter-zhong-guo',
                 source: '/cn/news.html',
                 target: '/alter-cn/news',
@@ -860,7 +860,7 @@ export default {
         _name: 'ITSlide',
         www: [
             {
-                title: '最新',
+                title: 'The latest',
                 docs: 'https://docs.rsshub.app/programming.html#itslide',
                 source: '/*',
                 target: '/itslide/new',
@@ -879,12 +879,11 @@ export default {
             },
         ],
     },
-
     'yuancheng.work': {
-        _name: '远程.work',
+        _name: '远程.work (remote work)',
         '.': [
             {
-                title: '招聘信息',
+                title: 'Recruitment information',
                 docs: 'https://docs.rsshub.app/other.html#yuan-cheng-work',
                 source: '/:caty',
                 target: (params, url) => {
@@ -901,7 +900,7 @@ export default {
         _name: '中時電子報',
         www: [
             {
-                title: '新聞',
+                title: 'News',
                 docs: 'https://docs.rsshub.app/traditional-media.html#zhong-shi-dian-zi-bao',
                 source: '/:caty',
                 target: (params) => '/chinatimes/' + params.caty,
@@ -913,7 +912,7 @@ export default {
         _name: 'IT 之家',
         it: [
             {
-                title: 'IT 资讯',
+                title: 'IT information',
                 docs: 'https://docs.rsshub.app/new-media.html#it-zhi-jia',
                 source: '/',
                 target: '/ithome/it',
@@ -921,7 +920,7 @@ export default {
         ],
         soft: [
             {
-                title: '软件之家',
+                title: 'Software house',
                 docs: 'https://docs.rsshub.app/new-media.html#it-zhi-jia',
                 source: '/',
                 target: '/ithome/soft',
@@ -929,7 +928,7 @@ export default {
         ],
         win10: [
             {
-                title: 'win10 之家',
+                title: 'win10 House',
                 docs: 'https://docs.rsshub.app/new-media.html#it-zhi-jia',
                 source: '/',
                 target: '/ithome/win10',
@@ -937,7 +936,7 @@ export default {
         ],
         iphone: [
             {
-                title: 'iphone 之家',
+                title: 'iphone home',
                 docs: 'https://docs.rsshub.app/new-media.html#it-zhi-jia',
                 source: '/',
                 target: '/ithome/iphone',
@@ -945,7 +944,7 @@ export default {
         ],
         ipad: [
             {
-                title: 'ipad 之家',
+                title: 'ipad home',
                 docs: 'https://docs.rsshub.app/new-media.html#it-zhi-jia',
                 source: '/',
                 target: '/ithome/ipad',
@@ -953,7 +952,7 @@ export default {
         ],
         android: [
             {
-                title: 'android 之家',
+                title: 'android home',
                 docs: 'https://docs.rsshub.app/new-media.html#it-zhi-jia',
                 source: '/',
                 target: '/ithome/android',
@@ -961,7 +960,7 @@ export default {
         ],
         digi: [
             {
-                title: '数码之家',
+                title: 'Digital home',
                 docs: 'https://docs.rsshub.app/new-media.html#it-zhi-jia',
                 source: '/',
                 target: '/ithome/digi',
@@ -969,7 +968,7 @@ export default {
         ],
         next: [
             {
-                title: '智能时代',
+                title: 'The era of intelligent',
                 docs: 'https://docs.rsshub.app/new-media.html#it-zhi-jia',
                 source: '/',
                 target: '/ithome/next',
@@ -978,10 +977,10 @@ export default {
     },
 
     'govopendata.com': {
-        _name: '新闻联播文字版',
+        _name: 'Text version of the News Feed',
         cn: [
             {
-                title: '新闻联播文字版',
+                title: 'News feeds text version',
                 docs: 'https://docs.rsshub.app/traditional-media.html#xin-wen-lian-bo-wen-zi-ban',
                 source: '/xinwenlianbo',
                 target: '/xinwenlianbo/index',
@@ -1010,7 +1009,7 @@ export default {
         _name: '白鲸出海',
         www: [
             {
-                title: '文章',
+                title: 'Article',
                 docs: 'https://docs.rsshub.app/new-media.html#bai-jing-chu-hai',
                 source: '',
                 target: '/baijing',
@@ -1021,7 +1020,7 @@ export default {
         _name: '小米社区',
         www: [
             {
-                title: '圈子',
+                title: 'Circle',
                 docs: 'https://docs.rsshub.app/bbs.html#xiao-mi-she-qu',
                 source: '/board/:boardId',
                 target: '/mi/bbs/board/:boardId',
@@ -1032,7 +1031,7 @@ export default {
         _name: '网易',
         ds: [
             {
-                title: '大神',
+                title: 'God',
                 docs: 'https://docs.rsshub.app/game.html#wang-yi-da-shen',
                 source: '/user/:id',
                 target: '/netease/ds/:id',
@@ -1040,13 +1039,13 @@ export default {
         ],
         open: [
             {
-                title: '公开课 - 精品课程',
+                title: 'Open class - excellent course',
                 docs: 'https://docs.rsshub.app/study.html#wang-yi-gong-kai-ke',
                 source: '/',
                 target: '/open163/vip',
             },
             {
-                title: '公开课 - 最新课程',
+                title: 'Open course - the latest course',
                 docs: 'https://docs.rsshub.app/study.html#wang-yi-gong-kai-ke',
                 source: '/',
                 target: '/open163/latest',
@@ -1057,7 +1056,7 @@ export default {
         _name: '苏州市政府',
         www: [
             {
-                title: '政府新闻',
+                title: 'Government news',
                 docs: 'https://docs.rsshub.app/government.html#su-zhou-shi-ren-min-zheng-fu',
                 source: '/szsrmzf/:uid/nav_list.shtml',
                 target: '/gov/suzhou/news/:uid',
@@ -1068,25 +1067,25 @@ export default {
         _name: 'MQube',
         www: [
             {
-                title: '全站最近更新',
+                title: 'Total station last updated',
                 docs: 'https://docs.rsshub.app/multimedia.html#mqube',
                 source: '/',
                 target: '/mqube/latest',
             },
             {
-                title: '全站每日排行',
+                title: 'Total station daily ranking',
                 docs: 'https://docs.rsshub.app/multimedia.html#mqube',
                 source: '/',
                 target: '/mqube/top',
             },
             {
-                title: '个人最近更新',
+                title: 'Personal recently updated',
                 docs: 'https://docs.rsshub.app/multimedia.html#mqube',
                 source: '/user/:user',
                 target: '/mqube/user/:user',
             },
             {
-                title: '标签最近更新',
+                title: 'The label recently updated',
                 docs: 'https://docs.rsshub.app/multimedia.html#mqube',
                 source: '/search/tag/:tag',
                 target: '/mqube/tag/:tag',
@@ -1097,7 +1096,7 @@ export default {
         _name: '日本経済新聞',
         www: [
             {
-                title: 'ホームページ',
+                title: 'ホ ー Rousseau PE ー JI',
                 docs: 'https://docs.rsshub.app/traditional-media.html#ri-ben-jing-ji-xin-wen',
                 source: '/',
                 target: '/nikkei/index',
@@ -1108,19 +1107,19 @@ export default {
         _name: 'Last.fm',
         www: [
             {
-                title: '用户播放记录',
+                title: 'The user to play the recording',
                 docs: 'https://docs.rsshub.app/multimedia.html#last-fm',
                 source: ['/user/:user', '/user/:user/*'],
                 target: '/lastfm/recent/:user',
             },
             {
-                title: '用户 Love 记录',
+                title: 'Users Love record',
                 docs: 'https://docs.rsshub.app/multimedia.html#last-fm',
                 source: ['/user/:user', '/user/:user/*'],
                 target: '/lastfm/loved/:user',
             },
             {
-                title: '站内 Top 榜单',
+                title: 'Station Top the list',
                 docs: 'https://docs.rsshub.app/multimedia.html#last-fm',
                 source: '/charts',
                 target: '/lastfm/top',
@@ -1131,25 +1130,25 @@ export default {
         _name: '低端影视',
         www: [
             {
-                title: '首页',
+                title: 'Home',
                 docs: 'https://docs.rsshub.app/multimedia.html#di-duan-ying-shi',
                 source: '/',
                 target: '/ddrk/index',
             },
             {
-                title: '标签',
+                title: 'Tags',
                 docs: 'https://docs.rsshub.app/multimedia.html#di-duan-ying-shi',
                 source: '/tag/:tag',
                 target: '/ddrk/tag/:tag',
             },
             {
-                title: '分类',
+                title: 'Classification',
                 docs: 'https://docs.rsshub.app/multimedia.html#di-duan-ying-shi',
                 source: ['/category/:category', '/category/:uplevel/:category'],
                 target: '/ddrk/category/:category',
             },
             {
-                title: '影视剧集更新',
+                title: 'TV drama set update',
                 docs: 'https://docs.rsshub.app/multimedia.html#di-duan-ying-shi',
                 source: ['/:name', '/:name/:season'],
                 target: (params) => {
@@ -1164,7 +1163,7 @@ export default {
         _name: '谷歌',
         photos: [
             {
-                title: '相册',
+                title: 'Album',
                 docs: 'https://docs.rsshub.app/picture.html#google-xiang-ce',
                 source: '/share/*',
                 target: (params, url, document) => {
@@ -1186,67 +1185,67 @@ export default {
         _name: 'javlibrary',
         www: [
             {
-                title: '新话题',
+                title: 'New topic',
                 docs: 'https://docs.rsshub.app/multimedia.html#javlibrary',
                 source: '/cn',
                 target: '/javlibrary/videos/update',
             },
             {
-                title: '新发行',
+                title: 'New release',
                 docs: 'https://docs.rsshub.app/multimedia.html#javlibrary',
                 source: '/cn',
                 target: '/javlibrary/videos/newrelease',
             },
             {
-                title: '新加入',
+                title: 'New added',
                 docs: 'https://docs.rsshub.app/multimedia.html#javlibrary',
                 source: '/cn',
                 target: '/javlibrary/videos/newentries',
             },
             {
-                title: '最想要',
+                title: 'Most wanted',
                 docs: 'https://docs.rsshub.app/multimedia.html#javlibrary',
                 source: '/cn',
                 target: '/javlibrary/videos/mostwanted',
             },
             {
-                title: '高评价',
+                title: 'High evaluation',
                 docs: 'https://docs.rsshub.app/multimedia.html#javlibrary',
                 source: '/cn',
                 target: '/javlibrary/videos/bestrated',
             },
             {
-                title: '最佳评论',
+                title: 'Best reviews',
                 docs: 'https://docs.rsshub.app/multimedia.html#javlibrary',
                 source: '/cn',
                 target: '/javlibrary/bestreviews',
             },
             {
-                title: '影星',
+                title: 'Movie star',
                 docs: 'https://docs.rsshub.app/multimedia.html#javlibrary',
                 source: '/cn/vl_star.php',
                 target: (params, url) => `/javlibrary/stars/${new URL(url).searchParams.get('s')}`,
             },
             {
-                title: '用户文章',
+                title: 'User articles',
                 docs: 'https://docs.rsshub.app/multimedia.html#javlibrary',
                 source: ['/cn/user.php', '/cn/userposts.php', '/cn/userwateched.php', '/cn/userowned.php', '/cn/userwanted.php'],
                 target: (params, url) => `/javlibrary/users/${new URL(url).searchParams.get('u')}/userposts`,
             },
             {
-                title: '用户拥有',
+                title: 'The user has',
                 docs: 'https://docs.rsshub.app/multimedia.html#javlibrary',
                 source: ['/cn/user.php', '/cn/userposts.php', '/cn/userwateched.php', '/cn/userowned.php', '/cn/userwanted.php'],
                 target: (params, url) => `/javlibrary/users/${new URL(url).searchParams.get('u')}/userowned`,
             },
             {
-                title: '用户看过',
+                title: 'User seen',
                 docs: 'https://docs.rsshub.app/multimedia.html#javlibrary',
                 source: ['/cn/user.php', '/cn/userposts.php', '/cn/userwateched.php', '/cn/userowned.php', '/cn/userwanted.php'],
                 target: (params, url) => `/javlibrary/users/${new URL(url).searchParams.get('u')}/userwatched`,
             },
             {
-                title: '用户想要',
+                title: 'The user wants to',
                 docs: 'https://docs.rsshub.app/multimedia.html#javlibrary',
                 source: ['/cn/user.php', '/cn/userposts.php', '/cn/userwateched.php', '/cn/userowned.php', '/cn/userwanted.php'],
                 target: (params, url) => `/javlibrary/users/${new URL(url).searchParams.get('u')}/userwanted`,
@@ -1257,13 +1256,13 @@ export default {
         _name: '起点',
         book: [
             {
-                title: '章节',
+                title: 'Chapter',
                 docs: 'https://docs.rsshub.app/reading.html#qi-dian',
                 source: '/info/:id',
                 target: '/qidian/chapter/:id',
             },
             {
-                title: '讨论区',
+                title: 'Discussion',
                 docs: 'https://docs.rsshub.app/reading.html#qi-dian',
                 source: '/info/:id',
                 target: '/qidian/forum/:id',
@@ -1271,13 +1270,13 @@ export default {
         ],
         www: [
             {
-                title: '限免',
+                title: 'Free',
                 docs: 'https://docs.rsshub.app/reading.html#qi-dian',
                 source: '/free',
                 target: '/qidian/free',
             },
             {
-                title: '女生限免',
+                title: 'Girls free',
                 docs: 'https://docs.rsshub.app/reading.html#qi-dian',
                 source: '/mm/free',
                 target: '/qidian/free/mm',
@@ -1299,7 +1298,7 @@ export default {
         _name: '奶牛关',
         '.': [
             {
-                title: '元素文章',
+                title: 'Elements of the article',
                 docs: 'https://docs.rsshub.app/game.html#nai-niu-guan',
                 source: ['/element/:id', '/element/:id/article'],
                 target: '/cowlevel/element/:id',
@@ -1309,7 +1308,7 @@ export default {
     'beijing.gov.cn': {
         wjw: [
             {
-                title: '北京卫生健康委员会',
+                title: 'The Beijing Health Commission',
                 docs: 'https://docs.rsshub.app/government.html#bei-jing-shi-wei-sheng-jian-kang-wei-yuan-hui',
                 source: '/xwzx_20031/:caty',
                 target: '/gov/beijing/mhc/:caty',
@@ -1320,61 +1319,61 @@ export default {
         _name: '浙江大学',
         cst: [
             {
-                title: '软件学院 - 全部通知',
+                title: 'Software Academy - Full notification',
                 docs: 'https://docs.rsshub.app/university.html#zhe-jiang-da-xue',
                 source: ['', '/*tpath'],
                 target: '/zju/cst/0',
             },
             {
-                title: '软件学院 - 招生信息',
+                title: 'Software College - admissions information',
                 docs: 'https://docs.rsshub.app/university.html#zhe-jiang-da-xue',
                 source: '/32178/list.htm',
                 target: '/zju/cst/1',
             },
             {
-                title: '软件学院 - 教务管理',
+                title: 'Software College - Academic Management',
                 docs: 'https://docs.rsshub.app/university.html#zhe-jiang-da-xue',
                 source: '/36216/list.htm',
                 target: '/zju/cst/2',
             },
             {
-                title: '软件学院 - 论文管理',
+                title: 'Software College - paper management',
                 docs: 'https://docs.rsshub.app/university.html#zhe-jiang-da-xue',
                 source: '/36217/list.htm',
                 target: '/zju/cst/3',
             },
             {
-                title: '软件学院 - 思政工作',
+                title: 'Software Academy - si administrative work',
                 docs: 'https://docs.rsshub.app/university.html#zhe-jiang-da-xue',
                 source: '/36192/list.htm',
                 target: '/zju/cst/4',
             },
             {
-                title: '软件学院 - 评奖评优',
+                title: 'Software Academy - Award awards',
                 docs: 'https://docs.rsshub.app/university.html#zhe-jiang-da-xue',
                 source: '/36228/list.htm',
                 target: '/zju/cst/5',
             },
             {
-                title: '软件学院 - 实习就业',
+                title: 'Software College - internship employment',
                 docs: 'https://docs.rsshub.app/university.html#zhe-jiang-da-xue',
                 source: '/36193/list.htm',
                 target: '/zju/cst/6',
             },
             {
-                title: '软件学院 - 国际实习',
+                title: 'Software School - International Internship',
                 docs: 'https://docs.rsshub.app/university.html#zhe-jiang-da-xue',
                 source: '/36235/list.htm',
                 target: '/zju/cst/7',
             },
             {
-                title: '软件学院 - 国内合作科研',
+                title: 'Software Academy - national cooperation in scientific research',
                 docs: 'https://docs.rsshub.app/university.html#zhe-jiang-da-xue',
                 source: '/36194/list.htm',
                 target: '/zju/cst/8',
             },
             {
-                title: '软件学院 - 国际合作科研',
+                title: 'Software Academy - International Cooperation in scientific research',
                 docs: 'https://docs.rsshub.app/university.html#zhe-jiang-da-xue',
                 source: '/36246/list.htm',
                 target: '/zju/cst/9',
@@ -1385,7 +1384,7 @@ export default {
         _name: '快递100',
         '.': [
             {
-                title: '快递追踪',
+                title: 'Courier tracking',
                 docs: 'https://docs.rsshub.app/other.html#kuai-di-100',
                 source: '/',
                 target: (params, url, document) => {
@@ -1397,7 +1396,7 @@ export default {
                 },
             },
             {
-                title: '支持的快递公司列表',
+                title: 'Support the courier company list',
                 docs: 'https://docs.rsshub.app/other.html#kuai-di-100',
                 source: '/',
                 target: '/kuaidi100/company',
@@ -1408,25 +1407,25 @@ export default {
         _name: '哈尔滨工程大学',
         yjsy: [
             {
-                title: '研究生院 - 通知公告',
+                title: 'Graduate school - notice',
                 docs: 'https://docs.rsshub.app/university.html#ha-er-bin-gong-cheng-da-xue',
                 source: '/*',
                 target: '/heu/yjsy/announcement',
             },
             {
-                title: '研究生院 - 新闻动态',
+                title: 'Graduate school - news',
                 docs: 'https://docs.rsshub.app/university.html#ha-er-bin-gong-cheng-da-xue',
                 source: '/*',
                 target: '/heu/yjsy/news',
             },
             {
-                title: '研究生院 - 国家公派项目',
+                title: 'Graduate School - National Public School Project',
                 docs: 'https://docs.rsshub.app/university.html#ha-er-bin-gong-cheng-da-xue',
                 source: '/*',
                 target: '/heu/yjsy/gjgp',
             },
             {
-                title: '研究生院 - 国际合作与交流项目',
+                title: 'Graduate School - International Cooperation and Exchange project',
                 docs: 'https://docs.rsshub.app/university.html#ha-er-bin-gong-cheng-da-xue',
                 source: '/*',
                 target: '/heu/yjsy/gjhz',
@@ -1434,7 +1433,7 @@ export default {
         ],
         job: [
             {
-                title: '就业服务平台 - 通知公告',
+                title: 'Employment services platform - Notification announcement',
                 docs: 'https://docs.rsshub.app/university.html#ha-er-bin-gong-cheng-da-xue',
                 source: '/*',
                 target: '/heu/job/tzgg',
@@ -1442,13 +1441,13 @@ export default {
         ],
         uae: [
             {
-                title: '水声学院 - 新闻动态',
+                title: 'Water acoustic Institute - News',
                 docs: 'https://docs.rsshub.app/university.html#ha-er-bin-gong-cheng-da-xue',
                 source: '/*',
                 target: '/heu/shuisheng/xwdt',
             },
             {
-                title: '研究生院 - 通知公告',
+                title: 'Graduate school - notice',
                 docs: 'https://docs.rsshub.app/university.html#ha-er-bin-gong-cheng-da-xue',
                 source: '/*',
                 target: '/heu/shuisheng/tzgg',
@@ -1459,13 +1458,13 @@ export default {
         _name: '工学网',
         '.': [
             {
-                title: '要闻',
+                title: 'News',
                 docs: 'https://docs.rsshub.app/university.html#ha-er-bin-gong-cheng-da-xue',
                 source: '/*',
                 target: '/heu/gongxue/yw',
             },
             {
-                title: '时讯',
+                title: 'Newsletter',
                 docs: 'https://docs.rsshub.app/university.html#ha-er-bin-gong-cheng-da-xue',
                 source: '/*',
                 target: '/heu/gongxue/sx',
@@ -1476,25 +1475,25 @@ export default {
         _name: '国家自然科学基金委员会',
         www: [
             {
-                title: '基金要闻',
+                title: 'Fund news',
                 docs: 'https://docs.rsshub.app/other.html#guo-jia-zi-ran-ke-xue-ji-jin-wei-yuan-hui',
                 source: '/*',
                 target: '/nsfc/news/jjyw',
             },
             {
-                title: '通知公告',
+                title: 'Notice',
                 docs: 'https://docs.rsshub.app/other.html#guo-jia-zi-ran-ke-xue-ji-jin-wei-yuan-hui',
                 source: '/*',
                 target: '/nsfc/news/tzgg',
             },
             {
-                title: '资助成果',
+                title: 'The financing of the outcome',
                 docs: 'https://docs.rsshub.app/other.html#guo-jia-zi-ran-ke-xue-ji-jin-wei-yuan-hui',
                 source: '/*',
                 target: '/nsfc/news/zzcg',
             },
             {
-                title: '科普快讯',
+                title: 'Science Alert',
                 docs: 'https://docs.rsshub.app/other.html#guo-jia-zi-ran-ke-xue-ji-jin-wei-yuan-hui',
                 source: '/*',
                 target: '/nsfc/news/kpkx',
@@ -1505,7 +1504,7 @@ export default {
         _name: '日本郵便',
         'trackings.post': [
             {
-                title: '郵便・荷物の追跡',
+                title: 'Mail・charge composition の tracing',
                 docs: 'https://docs.rsshub.app/other.html#ri-ben-you-bian',
                 source: '/services/srv/search/direct',
                 target: (params, url) => {
@@ -1522,7 +1521,7 @@ export default {
         _name: 'AP News',
         '.': [
             {
-                title: '话题',
+                title: 'Topic',
                 docs: 'https://docs.rsshub.app/traditional-media.html#ap-news',
                 source: '/:topic',
                 target: '/apnews/topics/:topic',
@@ -1533,25 +1532,25 @@ export default {
         _name: '国家留学网',
         www: [
             {
-                title: '遴选通知',
+                title: 'Selection notification',
                 docs: 'https://docs.rsshub.app/other.html#guo-jia-liu-xue-wang',
                 source: '/*',
                 target: '/csc/notice/lxtz',
             },
             {
-                title: '综合项目专栏',
+                title: 'Integrated project rubric',
                 docs: 'https://docs.rsshub.app/other.html#guo-jia-liu-xue-wang',
                 source: '/*',
                 target: '/csc/notice/xmzl',
             },
             {
-                title: '常见问题解答',
+                title: 'FAQ',
                 docs: 'https://docs.rsshub.app/other.html#guo-jia-liu-xue-wang',
                 source: '/*',
                 target: '/csc/notice/wtjd',
             },
             {
-                title: '录取公告',
+                title: 'Admission announcement',
                 docs: 'https://docs.rsshub.app/other.html#guo-jia-liu-xue-wang',
                 source: '/*',
                 target: '/csc/notice/lqgg',
@@ -1561,7 +1560,7 @@ export default {
     'biquge5200.com': {
         www: [
             {
-                title: '当前小说',
+                title: 'The current novel',
                 docs: 'https://docs.rsshub.app/reading.html#bi-qu-ge',
                 source: '/:id',
                 target: '/novel/biquge/:id',
@@ -1572,25 +1571,25 @@ export default {
         _name: 'Matters',
         '.': [
             {
-                title: '最新排序',
+                title: 'The latest sort',
                 docs: 'https://docs.rsshub.app/new-media.html#matters',
                 source: '',
                 target: '/matters/latest',
             },
             {
-                title: '熱門文章',
+                title: 'Popular articles',
                 docs: 'https://docs.rsshub.app/new-media.html#matters',
                 source: '',
                 target: '/matters/hot',
             },
             {
-                title: '标签',
+                title: 'Tags',
                 docs: 'https://docs.rsshub.app/new-media.html#matters',
                 source: '/tags/:tid',
                 target: '/matters/tags/:tid',
             },
             {
-                title: '作者',
+                title: 'Author',
                 docs: 'https://docs.rsshub.app/new-media.html#matters',
                 source: ['/:id', '/:id/comments'],
                 target: (params) => {
@@ -1604,7 +1603,7 @@ export default {
         _name: '斋书苑',
         www: [
             {
-                title: '最新章节',
+                title: 'The latest Chapter',
                 docs: 'https://docs.rsshub.app/reading.html#zhai-shu-yuan',
                 source: ['/book/:id', '/read/:id'],
                 target: '/novel/zhaishuyuan/:id',
@@ -1615,7 +1614,7 @@ export default {
         _name: '湖北工业大学',
         www: [
             {
-                title: '新闻中心',
+                title: 'News Center',
                 docs: 'http://docs.rsshub.app/university.html#hu-bei-gong-ye-da-xue',
                 source: '/xwzx/:name',
                 target: (params) => {
@@ -1626,31 +1625,31 @@ export default {
         ],
         jsjxy: [
             {
-                title: '新闻动态',
+                title: 'News',
                 docs: 'http://docs.rsshub.app/university.html#hu-bei-gong-ye-da-xue',
                 source: '/index/xwdt.htm',
                 target: '/hbut/cs/xwdt',
             },
             {
-                title: '通知公告',
+                title: 'Notice',
                 docs: 'http://docs.rsshub.app/university.html#hu-bei-gong-ye-da-xue',
                 source: '/index/tzgg.htm',
                 target: '/hbut/cs/tzgg',
             },
             {
-                title: '教学信息',
+                title: 'Teaching information',
                 docs: 'http://docs.rsshub.app/university.html#hu-bei-gong-ye-da-xue',
                 source: '/jxxx.htm',
                 target: '/hbut/cs/jxxx',
             },
             {
-                title: '科研动态',
+                title: 'Research dynamic',
                 docs: 'http://docs.rsshub.app/university.html#hu-bei-gong-ye-da-xue',
                 source: '/kxyj/kydt.htm',
                 target: '/hbut/cs/kydt',
             },
             {
-                title: '党建活动',
+                title: 'Party building activities',
                 docs: 'http://docs.rsshub.app/university.html#hu-bei-gong-ye-da-xue',
                 source: '/djhd/djhd.htm',
                 target: '/hbut/cs/djhd',
@@ -1661,43 +1660,43 @@ export default {
         _name: '站酷',
         www: [
             {
-                title: '全部推荐',
+                title: 'All of the recommended',
                 docs: 'https://docs.rsshub.app/design.html#zhan-ku',
                 source: '',
                 target: '/zcool/recommenda/all',
             },
             {
-                title: '首页推荐',
+                title: 'Home featured',
                 docs: 'https://docs.rsshub.app/design.html#zhan-ku',
                 source: '',
                 target: '/zcool/recommenda/home',
             },
             {
-                title: '编辑推荐',
+                title: 'Edit recommend',
                 docs: 'https://docs.rsshub.app/design.html#zhan-ku',
                 source: '',
                 target: '/zcool/recommenda/home',
             },
             {
-                title: '文章推荐',
+                title: 'Article recommended',
                 docs: 'https://docs.rsshub.app/design.html#zhan-ku',
                 source: '',
                 target: '/zcool/recommenda/article',
             },
             {
-                title: '作品榜单',
+                title: 'Works list',
                 docs: 'https://docs.rsshub.app/design.html#zhan-ku',
                 source: '',
                 target: '/zcool/top/design',
             },
             {
-                title: '文章榜单',
+                title: 'The article list',
                 docs: 'https://docs.rsshub.app/design.html#zhan-ku',
                 source: '',
                 target: '/zcool/top/article',
             },
             {
-                title: '用户作品',
+                title: 'The user works',
                 docs: 'https://docs.rsshub.app/design.html#zhan-ku',
                 source: ['/u/:id'],
                 target: `/zcoo/user/:id`,
@@ -1708,7 +1707,7 @@ export default {
         _name: 'Telegram',
         '.': [
             {
-                title: '频道',
+                title: 'Channels',
                 docs: 'https://docs.rsshub.app/social-media.html#telegram',
                 source: '/:username',
                 target: (params, url, document) => {
@@ -1719,7 +1718,7 @@ export default {
                 },
             },
             {
-                title: '频道',
+                title: 'Channels',
                 docs: 'https://docs.rsshub.app/social-media.html#telegram',
                 source: '/s/:username',
                 target: '/telegram/channel/:username',
@@ -1730,7 +1729,7 @@ export default {
         _name: '追新番日剧站',
         '.': [
             {
-                title: '更新列表',
+                title: 'Update the list',
                 docs: 'https://docs.rsshub.app/multimedia.html#zhui-xin-fan-ri-ju-zhan',
                 source: ['/main.php'],
                 target: '/zhuixinfan/list',
@@ -1741,7 +1740,7 @@ export default {
         _name: 'eTOLAND',
         '.': [
             {
-                title: '主题贴',
+                title: 'Theme patch',
                 docs: 'https://docs.rsshub.app/bbs.html#etoland',
                 source: ['/bbs/board.php', '/plugin/mobile/board.php'],
                 target: (params, url) => `/etoland/${new URL(url).searchParams.get('bo_table')}`,
@@ -1752,7 +1751,7 @@ export default {
         _name: '微信',
         'mp.weixin': [
             {
-                title: '公众号栏目',
+                title: 'Public Number column',
                 docs: 'https://docs.rsshub.app/new-media.html#gong-zhong-hao-lan-mu-fei-tui-song-li-shi-xiao-xi',
                 source: '/mp/homepage',
                 target: (params, url) => `/wechat/mp/homepage/${new URL(url).searchParams.get('__biz')}/${new URL(url).searchParams.get('hid')}/${new URL(url).searchParams.get('cid') ? new URL(url).searchParams.get('cid') : ''}`,
@@ -1763,49 +1762,49 @@ export default {
         _name: 'JavBus',
         www: [
             {
-                title: '首页',
+                title: 'Home',
                 docs: 'https://docs.rsshub.app/multimedia.html#javbus',
                 source: '/',
                 target: '/javbus/home',
             },
             {
-                title: '分类',
+                title: 'Classification',
                 docs: 'https://docs.rsshub.app/multimedia.html#javbus',
                 source: '/genre/:gid',
                 target: '/javbus/genre/:gid',
             },
             {
-                title: '演员',
+                title: 'Actor',
                 docs: 'https://docs.rsshub.app/multimedia.html#javbus',
                 source: '/star/:sid',
                 target: '/javbus/star/:sid',
             },
             {
-                title: '系列',
+                title: 'Series',
                 docs: 'https://docs.rsshub.app/multimedia.html#javbus',
                 source: '/series/:seriesid',
                 target: '/javbus/series/:seriesid',
             },
             {
-                title: '首页 / 步兵',
+                title: 'Home / infantry',
                 docs: 'https://docs.rsshub.app/multimedia.html#javbus',
                 source: '/uncensored',
                 target: '/javbus/uncensored/home',
             },
             {
-                title: '分类 / 步兵',
+                title: 'Classification / infantry',
                 docs: 'https://docs.rsshub.app/multimedia.html#javbus',
                 source: '/uncensored/genre/:gid',
                 target: '/javbus/uncensored/genre/:gid',
             },
             {
-                title: '演员 / 步兵',
+                title: 'Actors / infantry',
                 docs: 'https://docs.rsshub.app/multimedia.html#javbus',
                 source: '/uncensored/star/:sid',
                 target: '/javbus/uncensored/star/:sid',
             },
             {
-                title: '系列 / 步兵',
+                title: 'Series / infantry',
                 docs: 'https://docs.rsshub.app/multimedia.html#javbus',
                 source: '/uncensored/series/:seriesid',
                 target: '/javbus/uncensored/series/:seriesid',
@@ -1816,25 +1815,25 @@ export default {
         _name: 'JavBus',
         www: [
             {
-                title: '首页 / 欧陆风云',
+                title: 'Home / continental gathering',
                 docs: 'https://docs.rsshub.app/multimedia.html#javbus',
                 source: '/',
                 target: '/javbus/western/home',
             },
             {
-                title: '分类 / 欧陆风云',
+                title: 'Category / continental-FY',
                 docs: 'https://docs.rsshub.app/multimedia.html#javbus',
                 source: '/genre/:gid',
                 target: '/javbus/western/genre/:gid',
             },
             {
-                title: '演员 / 欧陆风云',
+                title: 'The actor / continental gathering',
                 docs: 'https://docs.rsshub.app/multimedia.html#javbus',
                 source: '/star/:sid',
                 target: '/javbus/western/star/:sid',
             },
             {
-                title: '系列 / 欧陆风云',
+                title: 'Series / continental gathering',
                 docs: 'https://docs.rsshub.app/multimedia.html#javbus',
                 source: '/series/:seriesid',
                 target: '/javbus/western/series/:seriesid',
@@ -1845,7 +1844,7 @@ export default {
         _name: 'sexinsex',
         '.': [
             {
-                title: '分区帖子',
+                title: 'Partition posts',
                 docs: 'https://docs.rsshub.app/multimedia.html#sexinsex',
                 source: '/bbs/:path',
                 target: (params, url) => {
@@ -1868,7 +1867,7 @@ export default {
         _name: '草榴社区',
         www: [
             {
-                title: '分区帖子',
+                title: 'Partition posts',
                 docs: 'https://docs.rsshub.app/multimedia.html#cao-liu-she-qu',
                 source: '/thread0806.php',
                 target: (params, url) => {
@@ -1902,7 +1901,7 @@ export default {
         _name: 'Lofter',
         www: [
             {
-                title: '话题 (标签)',
+                title: 'Topic (tags)',
                 docs: 'https://docs.rsshub.app/social-media.html#lofter',
                 source: ['/tag/:name', '/tag/:name/:type'],
                 target: (params) => `/lofter/tag/${params.name}/${params.type || ''}`,
@@ -1914,7 +1913,7 @@ export default {
         _name: '语雀',
         www: [
             {
-                title: '知识库',
+                title: 'Knowledge base',
                 docs: 'https://docs.rsshub.app/study.html#yu-que',
                 source: ['/:space/:book'],
                 target: (params, url, document) => {
@@ -1936,19 +1935,19 @@ export default {
         _name: '北京考试院',
         www: [
             {
-                title: '首页 / 通知公告',
+                title: 'Home / notice',
                 docs: 'https://docs.rsshub.app/government.html#bei-jing-jiao-yu-kao-shi-yuan',
                 source: ['/html/bjeeagg'],
                 target: '/gov/beijing/bjeea/bjeeagg',
             },
             {
-                title: '首页 / 招考政策',
+                title: 'Home / audition policy',
                 docs: 'https://docs.rsshub.app/government.html#bei-jing-jiao-yu-kao-shi-yuan',
                 source: ['/html/zkzc'],
                 target: '/gov/beijing/bjeea/zkzc',
             },
             {
-                title: '首页 / 自考快递',
+                title: 'Home / self Express',
                 docs: 'https://docs.rsshub.app/government.html#bei-jing-jiao-yu-kao-shi-yuan',
                 source: ['/html/zkkd'],
                 target: '/gov/beijing/bjeea/zkkd',
@@ -1959,7 +1958,7 @@ export default {
         _name: '香港01',
         www: [
             {
-                title: '最 Hit',
+                title: 'The most Hit',
                 docs: 'https://docs.rsshub.app/traditional-media.html#xiang-gang-01',
                 source: ['/hot', '/'],
                 target: '/hk01/hot',
@@ -1991,7 +1990,7 @@ export default {
         ],
         ebook: [
             {
-                title: '《香港01》周报',
+                title: 'The Hong Kong 01 of weekly',
                 docs: 'https://docs.rsshub.app/traditional-media.html#xiang-gang-01',
                 source: ['/', '/subscribe'],
                 target: '/hk01/ebook',
@@ -2002,7 +2001,7 @@ export default {
         _name: '豆瓣',
         www: [
             {
-                title: '用户的广播',
+                title: 'The user of the broadcast',
                 docs: 'https://docs.rsshub.app/social-media.html#dou-ban',
                 source: '/people/:user/',
                 target: (params, url, document) => {
