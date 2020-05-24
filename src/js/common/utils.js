@@ -1,5 +1,3 @@
-import crypto from 'crypto';
-
 export function secondToTime(second) {
     const hour = Math.floor(second / 3600);
     const min = Math.floor((second - hour * 3600) / 60);
@@ -14,6 +12,14 @@ window.addEventListener('message', (event) => {
     });
 });
 export function commandSandbox(command, data, callback) {
+    if (data.rules && typeof data.rules === 'object') {
+        try {
+            callback(iframe.contentWindow[command](data));
+            return;
+        } catch (e) {
+            // nothing
+        }
+    }
     iframe.contentWindow.postMessage(
         {
             command: command,
@@ -31,8 +37,4 @@ export function commandSandbox(command, data, callback) {
         }
     };
     returnResults.push(myReturn);
-}
-
-export function md5(data) {
-    return crypto.createHash('md5').update(data).digest('hex');
 }

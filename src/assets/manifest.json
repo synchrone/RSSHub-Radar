@@ -7,7 +7,7 @@
     },
     "name": "RSSHub Radar (EN)",
     "description": "RSSHub Radar is a spinoff of RSSHub, and it helps you quickly discover and subscribe to RSS and RSSHub for your current website",
-    "version": "1.4.0",
+    "version": "1.6.0",
     "homepage_url": "https://docs.rsshub.app/en",
     "icons": {
         "16": "icon16.png",
@@ -34,7 +34,6 @@
     "sandbox": {
         "pages": ["sandbox.html"]
     },
-    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';",
     "permissions": [
         "activeTab",
         "tabs",

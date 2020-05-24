@@ -3,7 +3,7 @@ import ClipboardJS from 'clipboard';
 import { getConfig } from '../common/config';
 import settingIcon from '../../svg/setting.svg';
 import aboutIcon from '../../svg/about.svg';
-import { md5 } from '../common/utils.js';
+import MD5 from 'md5.js';
 let config;
 
 function generateList(type, list) {
@@ -15,7 +15,7 @@ function generateList(type, list) {
                 type !== 'page-rsshub' || !config.rsshubAccessControl.enabled
                     ? replaced_url
                     : config.rsshubAccessControl.useCode
-                    ? `${replaced_url}?code=${md5(item.path + config.rsshubAccessControl.accessKey)}`
+                    ? `${replaced_url}?code=${new MD5().update(item.path + config.rsshubAccessControl.accessKey).digest('hex')}`
                     : `${replaced_url}?key=${config.rsshubAccessControl.accessKey}`
             );
             result += `
@@ -44,10 +44,11 @@ function generateList(type, list) {
                         ? `<a href="${config.submitto.freshrssDomain.replace(/\/$/, '')}/i/?c=feed&a=add&url_rss=${encodeURI(url)}" class="rss-action rss-submitto-freshrss">Subscribe to  FreshRSS</a>`
                         : ''
                 }
-                ${config.submitto.feedly ? `<a href="https://feedly.com/i/subscription/feed/${encodeURI(url)}" class="rss-action rss-submitto-feedly">Subscribe to  Feedly</a>` : ''}
-                ${config.submitto.inoreader ? `<a href="https://www.inoreader.com/?add_feed=${encodeURI(url)}" class="rss-action rss-submitto-inoreader">Subscribe to  Inoreader</a>` : ''}
-                ${config.submitto.feedbin ? `<a href="https://feedbin.com/?subscribe=${encodeURI(url)}" class="rss-action rss-submitto-feedbin">Subscribe to  Feedbin</a>` : ''}
-                ${config.submitto.theoldreader ? `<a href="https://theoldreader.com/feeds/subscribe?url=${encodeURI(url)}" class="rss-action rss-submitto-theoldreader">Subscribe to  The Old Reader</a>` : ''}
+                ${config.submitto.feedly ? `<a href="https://feedly.com/i/subscription/feed/${encodeURI(url)}" class="rss-action rss-submitto-feedly">Subscribe on Feedly</a>` : ''}
+                ${config.submitto.inoreader ? `<a href="https://www.inoreader.com/?add_feed=${encodeURI(url)}" class="rss-action rss-submitto-inoreader">Subscribe on Inoreader</a>` : ''}
+                ${config.submitto.feedbin ? `<a href="https://feedbin.com/?subscribe=${encodeURI(url)}" class="rss-action rss-submitto-feedbin">Subscribe on Feedbin</a>` : ''}
+                ${config.submitto.theoldreader ? `<a href="https://theoldreader.com/feeds/subscribe?url=${encodeURI(url)}" class="rss-action rss-submitto-theoldreader">Subscribe on The Old Reader</a>` : ''}
+                ${config.submitto.feedspub ? `<a href="https://feeds.pub/feed/${encodeURIComponent(url)}" class="rss-action rss-submitto-feedspub">Subscribe on Feeds.Pub</a>` : ''}
                 ${config.submitto.local ? `<a href="feed://${url}" class="rss-action rss-submitto-local">Open as feed://</a>` : ''}`
                 }
             </li>

@@ -24,10 +24,11 @@
                 </div>
                 <div class="subtitle">Rules update</div>
                 <div class="setting-item">
-                    <div class="setting-name">I will update automatically, you can also</div>
-                    <div class="setting-input">
+                    <div class="setting-name" v-if="config.enableRemoteRules">It will update automatically, you can also</div>
+                    <div class="setting-input" v-if="config.enableRemoteRules">
                         <el-button size="medium" @click="refreshRu" :disabled="refreshDisabled">{{ refreshDisabled ? 'Update in progress' : 'Update now' }}</el-button><el-progress :text-inside="true" :stroke-width="20" :percentage="percentage"></el-progress><span class="time">Updated {{ time }} ago. Next automatic update in {{ leftTime }}</span>
                     </div>
+                    <div class="setting-name" v-if="!config.enableRemoteRules">远程更新被禁用</div>
                 </div>
                 <div class="subtitle">One-click subscription</div>
                 <div class="setting-item">
@@ -61,6 +62,10 @@
                     <div class="setting-name">The Old Reader <a target="_blank" href="https://theoldreader.com/"><i class="el-icon-info"></i></a></div>
                     <div class="setting-input">
                         <el-checkbox @change="saveConfig" v-model="config.submitto.theoldreader">Open</el-checkbox>
+                    </div>
+                    <div class="setting-name">Feeds.Pub <a target="_blank" href="https://feeds.pub/"><i class="el-icon-info"></i></a></div>
+                    <div class="setting-input">
+                        <el-checkbox @change="saveConfig" v-model="config.submitto.feedspub">Open</el-checkbox>
                     </div>
                     <div class="setting-name">Local reader<el-tooltip class="item" effect="dark" content="Require reader support, such as Reeder, etc." placement="top"><i class="el-icon-info"></i></el-tooltip></div>
                     <div class="setting-input">

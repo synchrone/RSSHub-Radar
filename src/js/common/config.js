@@ -19,9 +19,11 @@ export const defaultConfig = {
         inoreader: false,
         feedbin: false,
         theoldreader: false,
+        feedspub: false,
         local: false,
     },
     refreshTimeout: 5 * 60 * 60,
+    enableRemoteRules: !navigator.userAgent.match(/firefox/i),
 };
 
 export function getConfig(success) {

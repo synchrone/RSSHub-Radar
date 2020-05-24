@@ -22,6 +22,11 @@
 
 RSSHub Radar is a derivative of [RSSHub](https://github.com/DIYgod/RSSHub), a browser extension that helps you quickly discover and subscribe to current website RSS and RSSHub
 
+- Quickly discover and subscribe to the RSS feed that comes with the current page
+- Quickly discover and subscribe to the RSSHub supported by the current page
+- Quickly discover which RSSHubs are currently supported by your site
+- Support one-click RSS subscription to Tiny Tiny RSS, Miniflux, FreshRSS, Feedly, Inoreader, Feedbin, The Old Reader, Feeds.Pub, Local Reader
+
 ![](https://i.imgur.com/MAQYBor.png)
 
 ![](https://i.imgur.com/YpD7L0D.png)
