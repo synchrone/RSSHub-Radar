@@ -28,7 +28,7 @@
                     <div class="setting-input" v-if="config.enableRemoteRules">
                         <el-button size="medium" @click="refreshRu" :disabled="refreshDisabled">{{ refreshDisabled ? 'Update in progress' : 'Update now' }}</el-button><el-progress :text-inside="true" :stroke-width="20" :percentage="percentage"></el-progress><span class="time">Updated {{ time }} ago. Next automatic update in {{ leftTime }}</span>
                     </div>
-                    <div class="setting-name" v-if="!config.enableRemoteRules">远程更新被禁用</div>
+                    <div class="setting-name" v-if="!config.enableRemoteRules">Enable Remote Rules</div>
                 </div>
                 <div class="subtitle">One-click subscription</div>
                 <div class="setting-item">

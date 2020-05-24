@@ -9,7 +9,8 @@
     "release": "npm run build && cd dist && zip -r ../radar.zip *",
     "format": "eslint \"**/*.js\" --fix && prettier \"**/*.{js,scss,less}\" --write",
     "format:staged": "eslint \"**/*.js\" --fix && pretty-quick --staged --verbose --pattern \"**/*.{js,scss,less}\"",
-    "format:check": "eslint \"**/*.js\" && prettier-check \"**/*.{js,scss,less}\""
+    "format:check": "eslint \"**/*.js\" && prettier-check \"**/*.{js,scss,less}\"",
+    "find-cjk": "grep -r -P '[\\x{1100}-\\x{11FF}\\x{3130}-\\x{318F}\\x{AC00}-\\x{D7AF}\\x{2E80}-\\x{2EFF}\\x{2F00}-\\x{2FDF}\\x{2FF0}-\\x{2FFF}\\x{3000}-\\x{303F}\\x{31C0}-\\x{31EF}\\x{3200}-\\x{32FF}\\x{3400}-\\x{4DBF}\\x{4E00}-\\x{9FFF}\\x{20000}-\\x{2A6DF}]+' src"
   },
   "repository": {
     "type": "git",

@@ -108,13 +108,13 @@ export function getPageRSSHub(data) {
                                     (parsed) => {
                                         if (parsed) {
                                             result.push({
-                                                title: formatBlank(rules[domain]._name ? '当前' : '', rule[recog.handler].title),
+                                                title: formatBlank(rules[domain]._name ? 'current' : '', rule[recog.handler].title),
                                                 url: '{rsshubDomain}' + parsed,
                                                 path: parsed,
                                             });
                                         } else {
                                             result.push({
-                                                title: formatBlank(rules[domain]._name ? '当前' : '', rule[recog.handler].title),
+                                                title: formatBlank(rules[domain]._name ? 'current' : '', rule[recog.handler].title),
                                                 url: rule[recog.handler].docs,
                                                 isDocs: true,
                                             });
