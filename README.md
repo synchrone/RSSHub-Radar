@@ -27,9 +27,9 @@ RSSHub Radar is a derivative of [RSSHub](https://github.com/DIYgod/RSSHub), a br
 - Quickly discover which RSSHubs are currently supported by your site
 - Support one-click RSS subscription to Tiny Tiny RSS, Miniflux, FreshRSS, Feedly, Inoreader, Feedbin, The Old Reader, Feeds.Pub, Local Reader
 
-![](https://i.imgur.com/MAQYBor.png)
+![](https://addons.cdn.mozilla.net/user-media/previews/full/238/238492.png?modified=1590345070)
 
-![](https://i.imgur.com/YpD7L0D.png)
+![](https://addons.cdn.mozilla.net/user-media/previews/full/237/237641.png?modified=1590345064)
 
 ## Installation
 
