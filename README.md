@@ -1,3 +1,8 @@
+## Project archived because upstream has English now
+<a href="https://addons.mozilla.org/en-US/firefox/addon/rsshub-radar/"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_128x128.png" width="48" /></a>
+
+<hr/>
+
 <p align="center">
 <img src="https://i.loli.net/2019/04/23/5cbeb7e41414c.png" alt="RSSHub" width="100">
 </p>
